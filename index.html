@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aparna R Pillai | Full Stack Developer</title>
+<meta name="description" content="Portfolio of Aparna R Pillai, final-year B.Tech CSE student working with Python, full-stack development and Generative AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F4FA; --surface:#FFFFFF; --ink:#1D2340; --muted:#566086; --line:#D5D8EA;
+  --accent:#5B4BDB; --accent-ink:#FFFFFF; --mint:#1F9E82; --mark:#E4E0FF;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12152B; --surface:#1B1F3B; --ink:#EDEFFC; --muted:#A3AAD0; --line:#2E3459;
+    --accent:#9D90FF; --accent-ink:#12152B; --mint:#4FD1B0; --mark:#2E2A6B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12152B; --surface:#1B1F3B; --ink:#EDEFFC; --muted:#A3AAD0; --line:#2E3459;
+  --accent:#9D90FF; --accent-ink:#12152B; --mint:#4FD1B0; --mark:#2E2A6B; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.0625rem;line-height:1.6}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.5rem}
+section{padding:4.5rem 0 0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:700;margin-bottom:1.75rem;letter-spacing:-.01em}
+p{margin:0 0 1rem;max-width:62ch}
+
+nav{display:flex;gap:1.25rem;flex-wrap:wrap;padding:1.5rem 0 0;font-weight:500;font-size:.98rem}
+nav a{text-decoration:none;color:var(--muted);padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--ink);border-color:var(--accent)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;padding:4rem 0 0}
+.hero h1{font-size:clamp(3rem,9vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+.role{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.3rem;font-weight:500;color:var(--muted);margin:1.1rem 0 1.25rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--ink);border-color:var(--line)}
+.btn:hover{border-color:var(--accent)}
+
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem;box-shadow:0 18px 40px -22px rgba(29,35,64,.35);transform:rotate(1.5deg)}
+.doc .bar{display:flex;gap:.4rem;margin-bottom:1rem}
+.doc .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.doc .l{height:9px;border-radius:5px;background:var(--line);margin-bottom:.55rem}
+.doc .l.hl{background:var(--mark);position:relative}
+.doc .l.hl::after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;border-radius:5px;background:var(--accent);opacity:.55;animation:sweep 1.6s .4s ease-out forwards}
+@keyframes sweep{to{width:100%}}
+.doc .sum{margin-top:1.1rem;padding-top:1rem;border-top:1px dashed var(--line);font-size:.93rem;color:var(--muted)}
+.doc .sum b{color:var(--ink);font-weight:600}
+.doc .q{margin-top:.8rem;padding:.55rem .8rem;border-radius:10px;background:var(--mark);font-size:.9rem;font-weight:500}
+
+/* projects */
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.75rem}
+.card h3{font-size:1.45rem;font-weight:700;margin-bottom:.6rem}
+.card ul{margin:.9rem 0 0;padding-left:1.15rem}
+.card li{margin-bottom:.35rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.9rem 0 0;padding:0;list-style:none}
+.tags li{margin:0;padding:.2rem .7rem;border-radius:999px;background:var(--mark);font-size:.88rem;font-weight:500}
+.card.alt{border-left:5px solid var(--mint)}
+.card.main{border-left:5px solid var(--accent)}
+
+/* timeline */
+.tl{border-left:2px solid var(--line);margin-left:.4rem;padding-left:1.75rem;position:relative}
+.tl::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl h3{font-size:1.3rem;font-weight:700}
+.tl .when{color:var(--muted);font-size:.98rem;margin:.25rem 0 .9rem}
+.tl ul{padding-left:1.15rem;margin:0}
+.tl li{margin-bottom:.35rem;max-width:62ch}
+
+/* skills, edu */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 2.5rem}
+.skills h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
+.skills .tags{margin:0}
+.edu{display:grid;gap:0}
+.edu div{display:flex;justify-content:space-between;gap:1.5rem;padding:1rem 0;border-top:1px solid var(--line)}
+.edu div:last-child{border-bottom:1px solid var(--line)}
+.edu strong{font-weight:600}
+.edu span{color:var(--muted)}
+.edu .r{text-align:right;white-space:nowrap}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.two ul{padding-left:1.15rem;margin:0}
+.two li{margin-bottom:.6rem}
+.two h2{font-size:1.5rem;margin-bottom:1rem}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:18px;padding:2.5rem;margin-top:0}
+.contact h2{margin-bottom:.75rem}
+.contact p{color:inherit;opacity:.85}
+.links{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
+.links a{padding:.7rem 1.2rem;border-radius:999px;border:2px solid var(--bg);text-decoration:none;font-weight:600}
+.links a:hover{background:var(--bg);color:var(--ink)}
+footer{padding:2rem 0 calc(2rem + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.92rem}
+
+@media (max-width:800px){
+  .hero,.proj,.two,.skills{grid-template-columns:1fr}
+  .doc{transform:none}
+  .edu div{flex-direction:column;gap:.2rem}
+  .edu .r{text-align:left;white-space:normal}
+  .contact{padding:1.75rem}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .doc .l.hl::after{animation:none;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Sections">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Aparna R Pillai</h1>
+      <div class="role">Full stack developer and entry-level software engineer</div>
+      <p>I’m a final-year B.Tech Computer Science student who builds with Python, full-stack web tools and Generative AI. I’ve built an AI document analyzer and a carbon credit trading platform, and I’m looking for an entry-level software engineering role.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="doc" role="img" aria-label="Illustration of a document being analyzed into a summary and an answer">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="l" style="width:92%"></div>
+      <div class="l hl" style="width:78%"></div>
+      <div class="l" style="width:88%"></div>
+      <div class="l hl" style="width:64%"></div>
+      <div class="l" style="width:84%"></div>
+      <div class="sum"><b>Summary:</b> key points pulled from your uploaded document.</div>
+      <div class="q">Ask a question about the document and get an answer.</div>
+    </div>
+  </header>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="proj">
+      <article class="card main">
+        <h3>Smart Doc AI Analyzer</h3>
+        <p>An AI tool that reads documents you upload and helps you understand them quickly.</p>
+        <ul>
+          <li>Analyzes uploaded documents.</li>
+          <li>Generates summaries and key points.</li>
+          <li>Answers questions about the document’s content.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>Generative AI</li></ul>
+        <p style="margin:1.25rem 0 0"><a class="btn primary" href="https://smart-doc-ai-woad.vercel.app/" target="_blank" rel="noopener">View live demo</a></p>
+      </article>
+      <article class="card alt">
+        <h3>Carbon Credit Trading Platform</h3>
+        <p>A web platform where organizations can buy and sell carbon credits.</p>
+        <ul>
+          <li>Lets organizations trade carbon credits.</li>
+          <li>Designed for transparency, with a user-friendly trading interface.</li>
+        </ul>
+        <ul class="tags"><li>HTML</li><li>JavaScript</li><li>Bootstrap</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="tl">
+      <h3>Generative AI and Cloud Virtual Intern</h3>
+      <div class="when">IBM SkillsBuild, with AICTE and CSRBOX | June 22, 2026 to July 31, 2026</div>
+      <ul>
+        <li>Completed a six-week internship on Generative AI and Cloud Computing.</li>
+        <li>Studied how Large Language Models (LLMs) work and how they’re deployed on cloud platforms.</li>
+        <li>Did hands-on labs in prompt engineering, foundation models and responsible AI.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Programming languages</h3><ul class="tags"><li>Python</li><li>Java</li><li>JavaScript</li><li>C</li></ul></div>
+      <div><h3>Web development</h3><ul class="tags"><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>JavaScript</li><li>Full-stack development</li></ul></div>
+      <div><h3>AI and cloud</h3><ul class="tags"><li>Generative AI</li><li>LLMs</li><li>Prompt engineering</li><li>Foundation models</li><li>Responsible AI</li><li>Machine learning</li><li>Cloud computing</li></ul></div>
+      <div><h3>Soft skills</h3><ul class="tags"><li>Leadership</li><li>Public speaking</li><li>Team management</li><li>Problem solving</li><li>Communication</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div><p style="margin:0"><strong>B.Tech in Computer Science and Engineering</strong><br><span>College of Engineering, Aranmula (APJ Abdul Kalam Technological University)</span></p><p class="r" style="margin:0"><strong>2023 to 2027</strong><br><span>CGPA 7.14 (up to 7th semester)</span></p></div>
+      <div><p style="margin:0"><strong>Higher Secondary (Class XII)</strong><br><span>NSS HSS Thattayil, Kerala State Board</span></p><p class="r" style="margin:0"><strong>2023</strong><br><span>84%</span></p></div>
+      <div><p style="margin:0"><strong>Secondary (Class X)</strong><br><span>NSS HSS Thattayil, Kerala State Board</span></p><p class="r" style="margin:0"><strong>2021</strong><br><span>98%</span></p></div>
+    </div>
+  </section>
+
+  <section class="two" aria-label="Certifications and leadership">
+    <div>
+      <h2>Certifications and workshops</h2>
+      <ul>
+        <li>One Million Prompters (Prompt Engineering), Dubai Future Foundation</li>
+        <li>AI For All, AI Appreciate Stage, Intel, CBSE and Digital India</li>
+        <li>Write Right with LaTeX, IEEE Student Branch, CE Aranmula</li>
+        <li>MATRIX 2.0, IDEAMIRROR COE</li>
+        <li>Learner’s Fest 2025 Student Ambassadors Meetup, K-DISC</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Leadership and achievements</h2>
+      <ul>
+        <li>College sports club representative, active in inter-college sports and cultural events.</li>
+        <li>Represented school at the sub-district sports meet in sprint and long jump.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Let’s work together</h2>
+      <p>I’m looking for an entry-level Software Engineer role. Send me a message or take a look at my work online.</p>
+      <div class="links">
+        <a href="mailto:aparnarpillai7@gmail.com">aparnarpillai7@gmail.com</a>
+        <a href="tel:+918289812152">+91 82898 12152</a>
+        <a href="https://linkedin.com/in/aparna-r-pillai-08017940a" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Aparna-aah" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Aparna R Pillai</footer>
+</div>
+</body>
+</html>
